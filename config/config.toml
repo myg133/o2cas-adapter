@@ -1,0 +1,25 @@
+[server]
+host = "0.0.0.0"  # 服务器监听地址
+port = 8080       # 服务器监听端口
+endpoint = "https://o2cas_domain" # 服务公开端点地址
+
+[oauth2]
+redirect_uri = "https://[oauth2_client_domain]/oauth2/callback" # OAuth2 回调地址
+
+[cas]
+login_url = "http://[cas_domain]/sign/authz/cas/login" # CAS 登录地址
+validate_url = "http://[cas_domain]/sign/authz/cas/serviceValidate"
+service_param = "service" # CAS 服务参数名称 不需要修改
+
+[jwt]
+secret = "cas_test" # JWT 密钥
+expiration = 3600   # JWT 过期时间（秒）
+
+[field_mapping]
+# OAuth2_field = "cas_field"  CAS 字段映射到 OAuth2
+email = "email"             # CAS 返回的用户邮箱字段名称
+username = "displayName"    # CAS 返回的用户名字段名称
+phone = "mobile"            # CAS 返回的用户手机号字段名称
+department = "department"   # CAS 返回的用户部门字段名称
+name = "username"           # CAS 返回的用户姓名字段名称
+
